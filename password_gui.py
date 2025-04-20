@@ -4,15 +4,15 @@ import requests
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-# 📖 The secret alphabets of password wisdom
+# alphabet
 LOWERCASE = "abcdefghijklmnopqrstuvwxyz"
 UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 DIGITS = "0123456789"
 SYMBOLS = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
-# 🧙 Step into the Oracle's chamber...
+# Oracle setup
 def get_charset_size(password):
-    """Figures out how many types of characters your password uses."""
+    """Figures out how many types of characters the password uses."""
     charset = 0
     if any(c in LOWERCASE for c in password):
         charset += len(LOWERCASE)
@@ -52,7 +52,7 @@ def format_time(seconds):
         return f"{seconds / year:.2f} years"
 
 def rate_entropy(entropy):
-    """Returns a sassy label for your entropy score."""
+    """Returns a label for entropy score."""
     if entropy < 28:
         return "🧻 Very Weak"
     elif entropy < 36:
@@ -84,7 +84,7 @@ def check_pwned(password):
         return None
 
 def check_password():
-    """The Big Button handler: crunch the stats, speak the truth."""
+    """Button."""
     password = entry.get()
     if not password:
         messagebox.showinfo("Oracle whispers...", "You must enter a password, brave one.")
@@ -114,7 +114,7 @@ def check_password():
         breach_var.set(f"🚨 Found in {breach_count:,} breaches!")
         breach_label.config(fg="red")
 
-# 🌟 GUI Setup – Welcome to the Oracle Interface
+# GUI Setup – Welcome to the Oracle Interface
 root = tk.Tk()
 root.title("PassSage – Your Password Oracle")
 root.geometry("480x330")
@@ -144,5 +144,5 @@ ttk.Label(frame, textvariable=crack_var, foreground="#555").pack(anchor="w")
 breach_label = tk.Label(frame, textvariable=breach_var, font=("Segoe UI", 10))
 breach_label.pack(anchor="w", pady=(5, 0))
 
-# 🌌 Begin the journey
+# 🌌 Launch wapp
 root.mainloop()
